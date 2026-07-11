@@ -92,23 +92,20 @@
   /* ---------- NAV ---------- */
   header{
     position:sticky; top:0; z-index:50;
-    background:rgba(251,247,242,.9);
+    background:rgba(251,247,242,.92);
     backdrop-filter:blur(10px);
     border-bottom:1px solid rgba(199,161,94,.2);
   }
   .navbar{
     display:flex; align-items:center; justify-content:space-between;
-    padding:22px 30px; max-width:1120px; margin:0 auto;
+    padding:16px 30px; max-width:1120px; margin:0 auto;
   }
-  .logo{
-    font-family:'Playfair Display', serif;
-    font-size:1.4rem;
-    font-weight:600;
-    letter-spacing:.1em;
-    color:var(--noir);
-    display:flex; align-items:baseline; gap:8px;
+  .logo{display:flex; align-items:baseline; gap:8px;}
+  .logo-word{
+    font-family:'Playfair Display', serif; font-size:1.4rem; font-weight:600;
+    letter-spacing:.1em; color:var(--noir);
   }
-  .logo-accent{color:var(--rouge);}
+  .logo-accent{color:var(--sauge);}
   .logo-sub{
     font-family:'Montserrat', sans-serif; font-size:.58rem; letter-spacing:.28em;
     text-transform:uppercase; color:var(--taupe); font-weight:500;
@@ -117,15 +114,25 @@
   nav a{font-size:.8rem; letter-spacing:.05em; color:var(--taupe); position:relative; padding-bottom:4px; text-transform:uppercase;}
   nav a::after{
     content:''; position:absolute; left:0; bottom:0; width:0; height:1px;
-    background:var(--or); transition:width .3s ease;
+    background:var(--sauge); transition:width .3s ease;
   }
   nav a:hover::after{width:100%;}
+  .nav-socials{display:flex; align-items:center; gap:14px;}
+  .nav-socials a{
+    width:34px; height:34px; border-radius:50%; border:1px solid var(--sable);
+    display:flex; align-items:center; justify-content:center; color:var(--noir);
+    transition:background .3s ease, color .3s ease;
+  }
+  .nav-socials a:hover{background:var(--sauge); border-color:var(--sauge); color:var(--ivoire);}
+  @media (max-width:860px){
+    .nav-socials{margin-top:10px;}
+  }
   #menu-toggle{display:none;}
   .burger{display:none; flex-direction:column; gap:5px; cursor:pointer; z-index:60;}
-  .burger span{width:24px; height:1px; background:var(--taupe-fonce); display:block;}
+  .burger span{width:24px; height:1px; background:var(--noir); display:block;}
 
   @media (max-width:860px){
-    nav{position:fixed; inset:0 0 0 auto; width:78%; max-width:320px; height:100vh;
+    nav{position:fixed; inset:0 0 0 auto; width:78%; max-width:320px; height:100vh; z-index:55;
       background:var(--ivoire); padding:110px 36px 36px; transform:translateX(100%);
       transition:transform .4s ease; box-shadow:-10px 0 40px rgba(74,59,51,.15);}
     nav ul{flex-direction:column; align-items:flex-start; gap:30px;}
@@ -134,41 +141,48 @@
   }
 
   /* ---------- HERO ---------- */
-  .hero{
-    position:relative; aspect-ratio:16/10; width:100%; display:flex; align-items:stretch;
-    background:#23211E url('https://raw.githubusercontent.com/annieclauderemillard-wq/fluide/main/hero-salon-v3.jpg') center 38%/cover no-repeat;
+  .hero{position:relative; padding:0;}
+  .hero-photo-wrap{
+    position:relative; aspect-ratio:16/9; width:100%; display:flex; align-items:stretch;
+    background:#23211E url('https://raw.githubusercontent.com/annieclauderemillard-wq/fluide/main/hero.png') center 15%/cover no-repeat;
     overflow:hidden;
   }
   .hero-overlay{
     position:absolute; inset:0; z-index:1;
-    background:linear-gradient(100deg, rgba(20,18,16,.94) 0%, rgba(20,18,16,.82) 28%, rgba(20,18,16,.5) 48%, rgba(20,18,16,.15) 68%, rgba(20,18,16,0) 85%);
+    background:linear-gradient(100deg, rgba(15,13,11,.96) 0%, rgba(15,13,11,.78) 28%, rgba(15,13,11,.4) 52%, rgba(15,13,11,.1) 75%, rgba(15,13,11,0) 95%);
   }
   .hero-content{
-    position:relative; z-index:2; display:flex; flex-direction:column; justify-content:space-between;
+    position:relative; z-index:2; display:flex; flex-direction:column; justify-content:center;
     height:100%; width:100%; padding:5% clamp(20px,6vw,70px); text-align:left;
   }
   .hero-lockup{font-family:'Playfair Display', serif; font-weight:600; font-size:clamp(1.7rem,3.6vw,2.7rem); color:var(--ivoire); letter-spacing:.08em;}
-  .hero-lockup span{color:var(--rouge);}
-  .hero-lockup-rule{width:56px; height:2px; background:var(--rouge); margin:12px 0 10px;}
+  .hero-lockup span{color:var(--sauge);}
+  .hero-lockup-rule{width:56px; height:2px; background:var(--sauge); margin:12px 0 10px;}
   .hero-lockup-sub{font-family:'Montserrat', sans-serif; font-size:clamp(.62rem,.9vw,.78rem); letter-spacing:.48em; color:var(--ivoire);}
   .hero-since{font-family:'Montserrat', sans-serif; font-size:.62rem; letter-spacing:.2em; color:#D8CDBE; margin-top:16px;}
-  .hero-bottom{max-width:640px;}
-  .hero-bottom h1{color:var(--ivoire); font-size:clamp(1.7rem,3.8vw,2.8rem); font-weight:400; margin-bottom:16px; line-height:1.2; text-align:left;}
-  .hero-bottom h1 em{color:var(--rouge); font-style:italic;}
+  .hero-bottom{max-width:680px;}
+  .hero-bottom h1{color:var(--ivoire); font-size:clamp(2.6rem,6vw,4.6rem); font-weight:400; margin-bottom:20px; line-height:1.08; text-align:left; font-style:italic;}
+  .hero-bottom h1 em{color:var(--sauge); font-style:italic;}
+  .hero-subtitle{font-family:'Montserrat', sans-serif; font-size:.85rem; letter-spacing:.04em; color:#EDE6DC; line-height:1.7; margin-bottom:32px; max-width:460px; text-transform:uppercase; font-weight:500;}
+  .hero-cta-btn{
+    display:inline-flex; align-items:center; gap:10px; background:var(--sauge); color:var(--ivoire);
+    padding:16px 32px; border-radius:100px; font-family:'Montserrat', sans-serif; font-size:.78rem;
+    letter-spacing:.1em; text-transform:uppercase; font-weight:600; box-shadow:0 12px 28px rgba(0,0,0,.25);
+    transition:background .3s ease, transform .3s ease;
+  }
+  .hero-cta-btn:hover{background:var(--sauge-fonce); transform:translateY(-2px);}
   .hero-fineprint{font-family:'Montserrat', sans-serif; font-size:.6rem; letter-spacing:.15em; color:#D8CDBE; line-height:1.8; text-align:left;}
   @media (max-width:700px){
-    .hero{aspect-ratio:3/4;}
-    .hero-content{justify-content:flex-start;}
-    .hero-bottom{margin-top:12vh;}
+    .hero-photo-wrap{aspect-ratio:3/4;}
   }
 
   /* ---------- SECTION generic ---------- */
-  section{padding:100px 0;}
-  .section-head{max-width:620px; margin-bottom:60px;}
+  section{padding:60px 0;}
+  .section-head{max-width:620px; margin-bottom:38px;}
   .section-head.center{margin-left:auto; margin-right:auto; text-align:center;}
   .section-head h2{font-size:clamp(2.1rem,4vw,2.8rem); font-weight:400;}
 
-  .experience-strip{display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-bottom:44px;}
+  .experience-strip{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:28px;}
   .experience-strip img{width:100%; height:180px; object-fit:cover; border-radius:4px;}
   .experience-strip-5{grid-template-columns:repeat(5,1fr);}
   .experience-grid{display:flex; justify-content:space-between; gap:60px; flex-wrap:wrap; font-size:.95rem; color:var(--taupe); align-items:flex-start;}
@@ -178,15 +192,20 @@
     width:32px; height:32px; border-radius:50%; border:1px solid var(--sable);
     display:flex; align-items:center; justify-content:center; font-size:.9rem; color:var(--rouge); flex:0 0 auto;
   }
-  @media (max-width:760px){.experience-strip{grid-template-columns:repeat(2,1fr);} .experience-strip-5{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:760px){.experience-strip{grid-template-columns:repeat(2,1fr);}}
 
   .savoir-faire-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:16px;}
   .savoir-faire-grid img{width:100%; height:340px; object-fit:cover; border-radius:4px;}
   @media (max-width:760px){.savoir-faire-grid{grid-template-columns:repeat(2,1fr);} .savoir-faire-grid img{height:240px;}}
 
   /* ---------- HISTOIRE ---------- */
-  .histoire{background:linear-gradient(160deg, var(--rouge), var(--rouge-fonce)); position:relative; overflow:hidden;}
-  .histoire-grid{display:grid; grid-template-columns:.88fr 1.12fr; gap:80px; align-items:center; position:relative; z-index:2;}
+  .histoire{
+    background:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.22 0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E"),
+      linear-gradient(160deg, var(--creme) 0%, #93A17E 30%, var(--sauge-fonce) 60%, #171D11 100%);
+    position:relative; overflow:hidden;
+  }
+  .histoire-grid{display:grid; grid-template-columns:.88fr 1.12fr; gap:50px; align-items:center; position:relative; z-index:2;}
   .histoire-img{position:relative;}
   .histoire-img img{border-radius:4px; box-shadow:0 30px 60px rgba(26,23,20,.3); filter:grayscale(.15);}
   .histoire-badge{
@@ -206,7 +225,7 @@
 
   /* ---------- MOSAIQUE ---------- */
   .mosaic{
-    display:grid; grid-template-columns:repeat(4,1fr); grid-template-rows:240px 240px 240px;
+    display:grid; grid-template-columns:repeat(4,1fr); grid-template-rows:200px 200px 200px;
     gap:12px;
   }
   .mosaic-tile{overflow:hidden; border-radius:4px; position:relative; height:100%; min-height:0; min-width:0;}
@@ -224,7 +243,7 @@
     border:1px solid var(--sable);
   }
   .mosaic-text span{font-family:'Playfair Display', serif; font-size:1.5rem; letter-spacing:.06em; color:var(--noir);}
-  .mosaic-text span em{font-style:normal; color:var(--rouge);}
+  .mosaic-text span em{font-style:normal; color:var(--sauge);}
   .mosaic-text small{font-family:'Montserrat', sans-serif; font-size:.6rem; letter-spacing:.4em; color:var(--taupe); margin-top:4px;}
   .mosaic-values{
     position:relative; display:flex; flex-direction:column; align-items:flex-start; justify-content:center;
@@ -258,47 +277,59 @@
     .adn-icons span{font-size:.6rem; letter-spacing:.02em; word-break:break-word;}
   }
 
+  .hero-icons-band{
+    position:relative; z-index:2;
+    display:flex; justify-content:center; gap:clamp(20px,5vw,60px); flex-wrap:wrap;
+    padding:26px clamp(20px,6vw,70px);
+    background:var(--creme);
+  }
+  .hero-icons-band > div{text-align:center;}
+  .hero-icons-band .adn-emoji{color:var(--taupe);}
+  .hero-icons-band span{font-family:'Montserrat',sans-serif; font-size:.68rem; letter-spacing:.08em; text-transform:uppercase; display:block; color:var(--noir);}
+  @media (max-width:700px){
+    .hero-icons-band{gap:12px; padding:16px 16px 18px;}
+    .hero-icons-band .adn-emoji{width:20px; height:20px; margin-bottom:5px;}
+    .hero-icons-band span{font-size:.55rem;}
+  }
+
   /* ---------- SERVICES ---------- */
   .eco-note{
-    display:flex; align-items:center; gap:12px;
-    background:var(--ivoire); border:2px solid var(--sauge);
-    border-radius:4px; padding:16px 26px; max-width:620px; margin:0 auto 50px;
-    font-size:.82rem; color:var(--taupe); text-align:left;
+    display:flex; align-items:center; gap:10px;
+    background:var(--ivoire); border:1px solid var(--sauge);
+    border-radius:100px; padding:10px 22px; max-width:560px; margin:32px auto 0;
+    font-size:.74rem; color:var(--taupe); text-align:left; line-height:1.4;
   }
   .eco-note .leaf{
     flex:0 0 auto; width:10px; height:10px; border-radius:50%; background:var(--sauge);
     display:flex; align-items:center; justify-content:center; color:var(--or); font-size:.95rem;
   }
-  .services-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:20px;}
-  details.svc{
-    background:var(--blanc); border:1px solid var(--sable); border-radius:4px;
-    padding:26px 30px; transition:border-color .25s ease, box-shadow .25s ease;
+  .svc-block{
+    position:relative; overflow:hidden; border-radius:26px;
+    margin-bottom:14px; box-shadow:0 8px 20px rgba(35,33,30,.08);
+    background:var(--blanc);
   }
-  details.svc[open]{border-color:var(--sauge); box-shadow:0 16px 34px rgba(26,23,20,.08);}
-
-  .svc-1{background:linear-gradient(135deg, #FBF7EF, #E6D8BC); border-color:rgba(26,23,20,.1);}
-  .svc-2{background:linear-gradient(135deg, #E6D8BC, #CBB08A); border-color:rgba(26,23,20,.1);}
-  .svc-3{background:linear-gradient(135deg, #93A17E, #3E4A31); border-color:transparent; color:var(--ivoire);}
-  .svc-4{background:linear-gradient(135deg, #93A17E, #5A6449); border-color:transparent; color:var(--ivoire);}
-  .svc-5{background:linear-gradient(135deg, #EFE4D2, #B9927E); border-color:rgba(26,23,20,.1);}
-  .svc-6{background:linear-gradient(135deg, #3A362F, #23211E); border-color:transparent; color:var(--ivoire);}
-  .svc-7{background:linear-gradient(135deg, #B9927E, #7A2530); border-color:transparent; color:var(--ivoire);}
-  .svc-8{background:linear-gradient(135deg, #7A2530, #5A1A22); border-color:transparent; color:var(--ivoire);}
-
-  .svc-3 summary, .svc-3 h4, .svc-4 summary, .svc-4 h4, .svc-6 summary, .svc-6 h4, .svc-7 summary, .svc-7 h4, .svc-8 summary, .svc-8 h4{color:var(--ivoire);}
-  .svc-3 summary::after, .svc-4 summary::after, .svc-6 summary::after, .svc-7 summary::after, .svc-8 summary::after{color:var(--ivoire);}
-  .svc-3 .svc-row, .svc-4 .svc-row, .svc-6 .svc-row, .svc-7 .svc-row, .svc-8 .svc-row{color:rgba(247,242,233,.8);}
-  .svc-3 .svc-row span:last-child, .svc-4 .svc-row span:last-child, .svc-6 .svc-row span:last-child, .svc-7 .svc-row span:last-child, .svc-8 .svc-row span:last-child{color:var(--ivoire);}
-  .svc-3 .eco-tag, .svc-4 .eco-tag, .svc-6 .eco-tag, .svc-7 .eco-tag, .svc-8 .eco-tag{color:rgba(247,242,233,.55);}
-  details.svc summary{
-    cursor:pointer; list-style:none; display:flex; align-items:center; justify-content:space-between;
-    font-family:'Playfair Display', serif; font-size:1.3rem; color:var(--taupe-fonce); font-weight:500;
+  .svc-block:last-child{margin-bottom:0;}
+  .svc-tag{
+    display:flex; align-items:center; gap:12px; margin:0; padding:11px 26px;
+    font-family:'Playfair Display', serif; font-size:1.05rem; font-weight:600; color:var(--ivoire);
   }
-  details.svc summary::-webkit-details-marker{display:none;}
-  details.svc summary::after{
-    content:'+'; font-size:1.3rem; color:var(--rouge); font-family:'Lato',sans-serif; font-weight:300; transition:transform .3s ease;
+  .svc-tag::before{content:none;}
+  .svc-block-1 .svc-tag{background:linear-gradient(120deg, #A8BE84 0%, #94AC77 45%, #64784A 100%);}
+  .svc-block-2 .svc-tag{background:linear-gradient(120deg, #91A876 0%, #7C9160 45%, #4C5B39 100%);}
+  .svc-block-3 .svc-tag{background:linear-gradient(120deg, #7E9160 0%, #6B7D4E 45%, #3E4A2C 100%);}
+  .svc-block-4 .svc-tag{background:linear-gradient(120deg, #687A4C 0%, #566338 45%, #2E3620 100%);}
+  .svc-block-5 .svc-tag{background:linear-gradient(120deg, #566338 0%, #3E4A2C 45%, #1E2413 100%);}
+  .svc-rows-wrap{padding:14px 26px 16px;}
+  .svc-rows{position:relative; z-index:2; display:grid; grid-template-columns:repeat(4,1fr); gap:0 24px;}
+  .svc-rows .svc-row{
+    display:flex; justify-content:space-between; gap:10px; font-size:.76rem;
+    padding:4px 0; border-bottom:1px solid var(--sable); color:var(--noir);
   }
-  details.svc[open] summary::after{content:'–';}
+  .svc-rows .svc-row span:first-child{font-weight:600;}
+  .svc-rows .svc-row span:last-child{color:var(--taupe); font-weight:400; white-space:nowrap; font-family:'Lato',serif;}
+  @media (max-width:1100px){.svc-rows{grid-template-columns:repeat(3,1fr);}}
+  @media (max-width:900px){.svc-rows{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:700px){.svc-rows{grid-template-columns:1fr;}}
   .svc-list{
     margin-top:18px; border-top:1px solid var(--blush); padding:16px 14px 4px;
     background:rgba(255,255,255,.6); border-radius:8px;
@@ -312,7 +343,7 @@
     display:block; margin-top:14px; font-size:.72rem; color:var(--taupe); font-style:italic;
     font-family:'Playfair Display', serif;
   }
-  @media (max-width:760px){.services-grid{grid-template-columns:1fr;} .eco-note{flex-direction:column; text-align:center; border-radius:20px;}}
+  @media (max-width:760px){.services-grid{grid-template-columns:1fr;} .eco-note{flex-direction:column; text-align:center; border-radius:16px;}}
 
   /* ---------- EQUIPE ---------- */
   .equipe{position:relative; background:var(--creme) url('https://raw.githubusercontent.com/annieclauderemillard-wq/fluide/main/wood-panel-pale.jpg') top left/480px auto repeat;}
@@ -320,21 +351,21 @@
   .equipe h2{color:var(--noir);}
 
   .proprio-feature{
-    display:flex; align-items:center; gap:44px; background:rgba(122,37,48,.10);
-    border:1px solid rgba(122,37,48,.25); border-radius:6px; padding:34px 40px; margin-bottom:60px;
-    backdrop-filter:blur(2px);
+    display:flex; align-items:center; gap:44px; background:var(--blanc);
+    border:1px solid var(--sable); border-radius:26px; padding:34px 40px; margin-bottom:60px;
+    box-shadow:0 20px 44px rgba(35,33,30,.08);
   }
-  .proprio-photo{width:150px; height:150px; border-radius:50%; overflow:hidden; flex:0 0 auto; box-shadow:0 14px 30px rgba(35,33,30,.18); border:3px solid var(--blanc);}
-  .proprio-photo img{width:100%; height:100%; object-fit:cover; object-position:center 25%;}
   .proprio-text .role{font-size:.7rem; text-transform:uppercase; letter-spacing:.12em; color:var(--rouge); font-family:'Montserrat',sans-serif; font-weight:600;}
-  .proprio-text h3{font-size:1.6rem; margin:6px 0 10px;}
+  .proprio-text h3{font-size:1.6rem; margin:6px 0 10px; color:var(--noir);}
   .proprio-text p{font-size:.92rem; color:var(--taupe); max-width:520px;}
+  .proprio-photo{width:150px; height:150px; border-radius:50%; overflow:hidden; flex:0 0 auto; box-shadow:0 14px 30px rgba(35,33,30,.18); border:3px solid var(--blanc);}
+  .proprio-photo img{width:100%; height:100%; object-fit:cover; object-position:center 15%;}
   @media (max-width:700px){.proprio-feature{flex-direction:column; text-align:center; gap:20px;}}
 
-  .equipe-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:50px 30px; position:relative; z-index:2;}
-  .membre{text-align:center;}
+  .equipe-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:50px 30px; position:relative; z-index:2; align-items:stretch;}
+  .membre{text-align:center; display:flex; flex-direction:column;}
   .membre-photo{
-    position:relative; width:144px; height:144px; margin:0 auto 20px;
+    position:relative; width:160px; height:160px; margin:0 auto 20px;
   }
   .membre-photo .ring{
     position:absolute; inset:-6px; border-radius:50%; border:1.5px solid var(--sauge);
@@ -343,16 +374,22 @@
     display:block; width:100%; height:100%; border-radius:50%; overflow:hidden;
     box-shadow:0 14px 28px rgba(35,33,30,.16); background:var(--blanc);
   }
-  .membre-photo img{width:100%; height:100%; object-fit:cover; object-position:center 25%;}
+  .membre-photo img{width:100%; height:100%; object-fit:cover; object-position:center 15%;}
   .membre h4{font-size:1.15rem; margin-bottom:4px; font-weight:500; color:var(--noir);}
   .membre .role{font-size:.68rem; text-transform:uppercase; letter-spacing:.1em; color:var(--sauge-fonce); margin-bottom:12px; display:block; font-family:'Lato',sans-serif;}
   .membre p{font-size:.85rem; color:var(--taupe); font-weight:300;}
   .membre-info{
     background:rgba(255,255,255,.68); border-radius:10px; padding:16px 18px;
-    backdrop-filter:blur(2px);
+    backdrop-filter:blur(2px); flex:1; display:flex; flex-direction:column; justify-content:center;
+    min-height:170px;
   }
   @media (max-width:900px){.equipe-grid{grid-template-columns:repeat(2,1fr);}}
-  @media (max-width:520px){.equipe-grid{grid-template-columns:1fr;}}
+  @media (max-width:520px){.equipe-grid{grid-template-columns:1fr;} .membre-info{min-height:0;}}
+  .equipe .section-head{margin-bottom:20px;}
+  .equipe .section-head h2{font-size:1.5rem;}
+  #services .section-head .eyebrow{color:#B8CC96;}
+  #services .section-head h2{color:var(--ivoire);}
+  .equipe .section-head .eyebrow{font-size:.6rem; margin-bottom:6px;}
 
   /* ---------- PARTENAIRES ---------- */
   .partners-grid{
@@ -375,16 +412,6 @@
     .partners-grid span small{font-size:.5rem; letter-spacing:.03em;}
   }
 
-  /* ---------- PRODUITS SPLIT ---------- */
-  .produits-split{display:grid; grid-template-columns:1.1fr .9fr; min-height:420px;}
-  .produits-photo{overflow:hidden;}
-  .produits-photo img{width:100%; height:100%; object-fit:cover; min-height:420px;}
-  .produits-text{background:var(--rouge); color:var(--ivoire); display:flex; flex-direction:column; justify-content:center; padding:60px;}
-  .produits-text .eyebrow{color:var(--ivoire); opacity:.85;}
-  .produits-text h2{color:var(--ivoire);}
-  .produits-text p{color:#EAD9D3; font-size:.95rem; margin-top:16px; max-width:380px;}
-  @media (max-width:860px){.produits-split{grid-template-columns:1fr;} .produits-photo img{min-height:280px;} .produits-text{padding:44px 30px;}}
-
   /* ---------- INSTAGRAM CAROUSEL ---------- */
   .insta-carousel{
     display:flex; gap:16px; overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:10px;
@@ -397,16 +424,19 @@
   }
 
   /* ---------- GALERIE ---------- */
-  .galerie-grid{columns:4 220px; column-gap:16px;}
-  .galerie-grid img{width:100%; margin-bottom:16px; border-radius:20px; box-shadow:0 14px 30px rgba(74,59,51,.14);}
-  @media (max-width:700px){.galerie-grid{columns:2 160px;}}
+  .galerie-grid{display:grid; grid-template-columns:repeat(3,1fr); grid-template-rows:460px; gap:14px;}
+  .galerie-grid img{display:block; width:100%; height:100%; object-fit:cover; object-position:center 25%; border-radius:8px; box-shadow:0 14px 30px rgba(74,59,51,.14); min-height:0; min-width:0;}
+  @media (max-width:700px){
+    .galerie-grid{grid-template-columns:1fr; grid-template-rows:repeat(3,320px);}
+  }
 
   /* ---------- CONTACT ---------- */
   .contact{background:var(--taupe-fonce); color:var(--ivoire); position:relative; overflow:hidden;}
   .contact .eyebrow{color:var(--or-clair);}
   .contact h2{color:var(--ivoire); font-weight:400;}
-  .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:80px; position:relative; z-index:2;}
-  .info-block{margin-bottom:32px;}
+  .contact-grid-4{display:grid; grid-template-columns:repeat(4,1fr); gap:36px; position:relative; z-index:2;}
+  .contact{padding:50px 0;}
+  .info-block{margin-bottom:0;}
   .info-block h4{color:var(--or-clair); font-size:.72rem; text-transform:uppercase; letter-spacing:.14em; font-family:'Lato',sans-serif; font-weight:500; margin-bottom:10px;}
   .info-block p{color:#EDE1D6; font-size:.92rem; font-weight:300;}
   .info-block a{color:#EDE1D6; border-bottom:1px solid rgba(237,225,214,.35);}
@@ -422,13 +452,39 @@
   }
   .socials a:hover{background:var(--rouge); border-color:var(--rouge);}
   form{display:flex; flex-direction:column; gap:16px;}
+  .modal-toggle{display:none;}
+  .modal-overlay{
+    display:none; position:fixed; inset:0; z-index:200;
+    align-items:center; justify-content:center; padding:20px;
+  }
+  .modal-toggle:checked ~ .modal-overlay{display:flex;}
+  .modal-backdrop{
+    position:absolute; inset:0; background:rgba(20,18,16,.6); cursor:pointer;
+  }
+  .modal-box{
+    position:relative; z-index:2; background:var(--ivoire); border-radius:12px;
+    padding:40px; max-width:440px; width:100%; box-shadow:0 30px 60px rgba(0,0,0,.35);
+  }
+  .modal-box form input, .modal-box form textarea{
+    background:var(--blanc); border:1px solid var(--sable); color:var(--noir);
+    padding:14px 16px; font-family:'Lato',sans-serif; font-size:.9rem; border-radius:8px; font-weight:300;
+  }
+  .modal-box form input::placeholder, .modal-box form textarea::placeholder{color:var(--taupe-clair);}
+  .modal-close{
+    position:absolute; top:16px; right:18px; cursor:pointer; font-size:1.1rem; color:var(--taupe);
+    width:32px; height:32px; display:flex; align-items:center; justify-content:center;
+    border-radius:50%; transition:background .2s ease;
+  }
+  .modal-close:hover{background:var(--sable);}
+  @media (max-width:520px){.modal-box{padding:30px 26px;}}
   form input, form textarea{
     background:transparent; border:1px solid rgba(237,225,214,.3); color:var(--ivoire);
     padding:15px 18px; font-family:'Lato',sans-serif; font-size:.9rem; border-radius:14px; font-weight:300;
   }
   form input::placeholder, form textarea::placeholder{color:#B9A99A;}
   form textarea{min-height:120px; resize:vertical;}
-  @media (max-width:860px){.contact-grid{grid-template-columns:1fr; gap:56px;}}
+  @media (max-width:900px){.contact-grid-4{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:520px){.contact-grid-4{grid-template-columns:1fr;}}
 
   footer{background:var(--taupe-fonce); border-top:1px solid rgba(228,207,160,.15); padding:28px 0;}
   .footer-row{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;
@@ -440,57 +496,60 @@
 
 <header>
   <div class="navbar">
-    <a href="#accueil" class="logo">FL<span class="logo-accent">U</span>IDE<span class="logo-sub">Coiffure</span></a>
     <input type="checkbox" id="menu-toggle">
     <label for="menu-toggle" class="burger"><span></span><span></span><span></span></label>
     <nav>
       <ul>
+        <li><a href="tel:4506768405" class="btn ghost" style="padding:11px 22px;">450-676-8405</a></li>
+        <li class="nav-socials">
+          <a href="https://facebook.com/fluidecoiffure" aria-label="Facebook"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M13.5 21v-7.8h2.6l.4-3h-3v-1.9c0-.87.24-1.46 1.5-1.46h1.6V4.14C15.9 4.1 15 4 13.9 4c-2.3 0-3.9 1.4-3.9 4v2.2H7.4v3H10V21h3.5Z"/></svg></a>
+          <a href="https://www.instagram.com/fluidecoiffure/?hl=fr-ca" aria-label="Instagram"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></a>
+        </li>
         <li><a href="#histoire">Histoire</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#equipe">Équipe</a></li>
         <li><a href="#galerie">Galerie</a></li>
         <li><a href="#contact">Nous trouver</a></li>
-        <li><a href="tel:4506768405" class="btn ghost" style="padding:11px 22px;">450-676-8405</a></li>
       </ul>
     </nav>
+    <a href="#accueil" class="logo"><span class="logo-word">FLU<span class="logo-accent">I</span>DE</span><span class="logo-sub">Coiffure</span></a>
   </div>
 </header>
 
 <section class="hero" id="accueil">
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <div class="hero-top">
-      <div class="hero-lockup">FL<span>U</span>IDE</div>
-      <div class="hero-lockup-rule"></div>
-      <div class="hero-lockup-sub">COIFFURE</div>
-      <div class="hero-since">DEPUIS AOÛT 2005</div>
-    </div>
-    <div class="hero-bottom">
-      <h1>L'art de<br>révéler votre<br><em>beauté naturelle.</em></h1>
-      <div class="hero-fineprint">SALON HAUT DE GAMME<br>SUR RENDEZ-VOUS UNIQUEMENT</div>
+  <div class="hero-photo-wrap">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-bottom">
+        <div class="hero-top" style="margin-bottom:20px;">
+          <div class="hero-lockup">FLU<span>I</span>DE</div>
+          <div class="hero-lockup-rule"></div>
+          <div class="hero-lockup-sub">COIFFURE</div>
+          <div class="hero-since">DEPUIS AOÛT 2005</div>
+        </div>
+        <h1>L'art de révéler<br>votre <em>beauté naturelle.</em></h1>
+        <p class="hero-subtitle">Un salon de coiffure où expertise et douceur s'unissent.</p>
+        <a href="tel:4506768405" class="hero-cta-btn">Prendre rendez-vous</a>
+        <div class="hero-fineprint" style="margin-top:24px;">SALON HAUT DE GAMME · SUR RENDEZ-VOUS UNIQUEMENT</div>
+      </div>
     </div>
   </div>
-</section>
-
-<section style="padding:70px 0 30px;">
-  <div class="wrap">
-    <div class="adn-icons">
-      <div>
-        <svg class="adn-emoji" viewBox="0 0 32 32" fill="none"><path d="M16 27C8 21 4 16.5 4 11.5 4 7.9 6.9 5 10.5 5c2.1 0 4 1 5.5 2.8C17.5 6 19.4 5 21.5 5 25.1 5 28 7.9 28 11.5 28 16.5 24 21 16 27Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
-        <span>Passion</span>
-      </div>
-      <div>
-        <svg class="adn-emoji" viewBox="0 0 32 32" fill="none"><circle cx="9" cy="8" r="3.2" stroke="currentColor" stroke-width="1.6"/><circle cx="9" cy="24" r="3.2" stroke="currentColor" stroke-width="1.6"/><path d="M27 7 11.3 15.6M11.3 16.4 27 25M11.6 16 9 16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-        <span>Expertise</span>
-      </div>
-      <div>
-        <svg class="adn-emoji" viewBox="0 0 32 32" fill="none"><path d="M16 27c8-2 11-8 11-14 0-3.5-2-6-5.5-6C17 7 16 12 16 16c0-4-1-9-5.5-9C7 7 5 9.5 5 13c0 6 3 12 11 14Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
-        <span>Écoute</span>
-      </div>
-      <div>
-        <svg class="adn-emoji" viewBox="0 0 32 32" fill="none"><path d="M16 5 19.5 13 28 14 21.5 19.5 23.5 28 16 23.5 8.5 28 10.5 19.5 4 14 12.5 13Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
-        <span>Confiance</span>
-      </div>
+  <div class="hero-icons-band">
+    <div>
+      <svg class="adn-emoji" viewBox="0 0 32 32" fill="none"><path d="M16 27C8 21 4 16.5 4 11.5 4 7.9 6.9 5 10.5 5c2.1 0 4 1 5.5 2.8C17.5 6 19.4 5 21.5 5 25.1 5 28 7.9 28 11.5 28 16.5 24 21 16 27Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+      <span>Passion</span>
+    </div>
+    <div>
+      <svg class="adn-emoji" viewBox="0 0 32 32" fill="none"><circle cx="9" cy="8" r="3.2" stroke="currentColor" stroke-width="1.6"/><circle cx="9" cy="24" r="3.2" stroke="currentColor" stroke-width="1.6"/><path d="M27 7 11.3 15.6M11.3 16.4 27 25M11.6 16 9 16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      <span>Expertise</span>
+    </div>
+    <div>
+      <svg class="adn-emoji" viewBox="0 0 32 32" fill="none"><path d="M16 27c8-2 11-8 11-14 0-3.5-2-6-5.5-6C17 7 16 12 16 16c0-4-1-9-5.5-9C7 7 5 9.5 5 13c0 6 3 12 11 14Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+      <span>Écoute</span>
+    </div>
+    <div>
+      <svg class="adn-emoji" viewBox="0 0 32 32" fill="none"><path d="M16 5 19.5 13 28 14 21.5 19.5 23.5 28 16 23.5 8.5 28 10.5 19.5 4 14 12.5 13Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+      <span>Confiance</span>
     </div>
   </div>
 </section>
@@ -500,12 +559,10 @@
     <div class="section-head" style="margin-bottom:36px;">
       <span class="eyebrow">L'expérience Fluide</span>
     </div>
-    <div class="experience-strip experience-strip-5">
-      <img src="https://raw.githubusercontent.com/annieclauderemillard-wq/fluide/main/image3.jpeg" alt="Salon Fluide Coiffure, mur de miroirs">
+    <div class="experience-strip">
       <img src="https://images.unsplash.com/photo-1678569187178-eab3ece6f778?fm=jpg&q=80&w=700&auto=format&fit=crop" alt="Café servi au salon Fluide">
       <img src="https://raw.githubusercontent.com/annieclauderemillard-wq/fluide/main/image7.jpeg" alt="Tablette de produits, salon Fluide">
       <img src="https://images.unsplash.com/photo-1468418213124-2e45bf80d038?fm=jpg&q=80&w=700&auto=format&fit=crop" alt="Cliente dégustant un café">
-      <img src="https://raw.githubusercontent.com/annieclauderemillard-wq/fluide/main/image5.jpeg" alt="Coin coiffure et verdure, salon Fluide">
     </div>
     <div class="experience-grid">
       <div style="max-width:480px;">
@@ -550,7 +607,7 @@
     <div class="mosaic">
       <div class="mosaic-tile m1"><img src="https://raw.githubusercontent.com/annieclauderemillard-wq/fluide/main/image4.jpeg" alt="Salon Fluide Coiffure"></div>
       <div class="mosaic-tile m2"><img src="https://images.unsplash.com/photo-1707812343087-c9ff9e5abb43?fm=jpg&q=80&w=800&auto=format&fit=crop" alt="Coiffure en cours"></div>
-      <div class="mosaic-tile m3 mosaic-text"><span>FL<em>U</em>IDE</span><small>COIFFURE</small></div>
+      <div class="mosaic-tile m3 mosaic-text"><span>FLU<em>I</em>DE</span><small>COIFFURE</small></div>
       <div class="mosaic-tile m4"><img src="https://images.unsplash.com/photo-1642054247158-b7f888bdf96a?fm=jpg&q=80&w=800&auto=format&fit=crop" alt="Longueurs et mouvement"></div>
       <div class="mosaic-tile m5"><img src="https://raw.githubusercontent.com/annieclauderemillard-wq/fluide/main/image9.jpeg" alt="Produits professionnels, salon Fluide"></div>
       <div class="mosaic-tile m6 mosaic-values">
@@ -561,120 +618,99 @@
   </div>
 </section>
 
-<section id="services">
+<section id="services" style="background:linear-gradient(160deg, #64784A 0%, #3E4A2C 45%, #1E2413 100%);">
   <div class="wrap">
     <div class="section-head center">
       <span class="eyebrow">Nos services</span>
       <h2>Une liste de services pensée pour chaque tête.</h2>
     </div>
 
+    <div style="background:var(--noir); color:var(--ivoire); text-align:center; padding:20px; border-radius:4px; margin-bottom:44px;">
+      <strong style="font-family:'Playfair Display', serif; font-size:1.15rem; letter-spacing:.04em;">SUR RENDEZ-VOUS UNIQUEMENT</strong>
+      <p style="font-size:.85rem; margin-top:6px; color:var(--ivoire); opacity:.85;">Tous nos rendez-vous sont pris en personne par notre réceptionniste, qui est également coiffeuse. Elle prend le temps de comprendre vos besoins afin de vous offrir une expérience parfaitement adaptée.</p>
+    </div>
+
+    <div class="svc-block svc-block-1">
+      <div class="svc-tag svc-tag-1">Coupe &amp; mise en plis</div>
+      <div class="svc-rows-wrap">
+      <div class="svc-rows">
+        <div class="svc-row"><span>Cheveux court</span><span>54 $ Jr. – 70 $</span></div>
+        <div class="svc-row"><span>Cheveux mi-long</span><span>59 $ Jr. – 76 $</span></div>
+        <div class="svc-row"><span>Cheveux long</span><span>71 $ Jr. – 84 $</span></div>
+        <div class="svc-row"><span>Frange</span><span>16 $</span></div>
+        <div class="svc-row"><span>Up-do (coiffure de soirée)</span><span>à partir de 70 $ Jr. – 80 $</span></div>
+        <div class="svc-row"><span>Mise en plis cheveux court</span><span>40 $ Jr. – 47 $</span></div>
+        <div class="svc-row"><span>Mise en plis cheveux long</span><span>49 $ Jr. – 53 $</span></div>
+      </div>
+      </div>
+    </div>
+
+    <div class="svc-block svc-block-2">
+      <div class="svc-tag svc-tag-2">Coloration &amp; mèches</div>
+      <div class="svc-rows-wrap">
+      <div class="svc-rows">
+        <div class="svc-row"><span>Coloration régulière</span><span>66 $+</span></div>
+        <div class="svc-row"><span>Coloration complète</span><span>81 $+</span></div>
+        <div class="svc-row"><span>Coloration 3 semaines</span><span>53 $+</span></div>
+        <div class="svc-row"><span>Extra 10g</span><span>14 $+</span></div>
+        <div class="svc-row"><span>Décoloration</span><span>110 $+</span></div>
+        <div class="svc-row"><span>Gloss / Toner</span><span>46 $+</span></div>
+        <div class="svc-row"><span>Correction couleur</span><span>à partir de 160 $/h</span></div>
+        <div class="svc-row"><span>Démaquillant</span><span>69 $+</span></div>
+        <div class="svc-row"><span>Mèches tête complète</span><span>200 $+ Jr / 220 $+</span></div>
+        <div class="svc-row"><span>Mèches 3/4 tête</span><span>150 $+ Jr / 172 $+</span></div>
+        <div class="svc-row"><span>Mèches 1/2 tête</span><span>140 $+ Jr / 160 $+</span></div>
+        <div class="svc-row"><span>Mèches 1/4 tête</span><span>80 $+ Jr / 91 $+</span></div>
+        <div class="svc-row"><span>Balayage cheveux court</span><span>170 $+ Jr / 195 $+</span></div>
+        <div class="svc-row"><span>Balayage cheveux long</span><span>240 $+ Jr / 274 $+</span></div>
+        <div class="svc-row"><span>Babylight</span><span>à partir de 150 $ Jr / 200 $</span></div>
+        <div class="svc-row"><span>Contouring gloss inclus</span><span>à partir de 125 $</span></div>
+      </div>
+      </div>
+    </div>
+
+    <div class="svc-block svc-block-3">
+      <div class="svc-tag svc-tag-3">Soins &amp; traitements</div>
+      <div class="svc-rows-wrap">
+      <div class="svc-rows">
+        <div class="svc-row"><span>Botox capillaire</span><span>à partir de 150 $</span></div>
+        <div class="svc-row"><span>Lissage brésilien</span><span>à partir de 400 $</span></div>
+        <div class="svc-row"><span>Soin capillaire</span><span>à partir de 20 $+</span></div>
+        <div class="svc-row"><span>Massage crânien (Chantale, 20 min sur chaise)</span><span>35 $</span></div>
+        <div class="svc-row"><span>Consultation extension / volumateur</span><span>gratuite, 15 min</span></div>
+        <div class="svc-row"><span>Extensions, matériel non inclus</span><span>à partir de 110 $/h</span></div>
+      </div>
+      </div>
+    </div>
+
+    <div class="svc-block svc-block-4">
+      <div class="svc-tag svc-tag-4">Hommes</div>
+      <div class="svc-rows-wrap">
+      <div class="svc-rows">
+        <div class="svc-row"><span>Coupe stylisée</span><span>41 $ Jr. – 47 $</span></div>
+        <div class="svc-row"><span>Coupe aux 2 semaines</span><span>30 $ Jr. – 35 $</span></div>
+        <div class="svc-row"><span>Rasage simple</span><span>29 $</span></div>
+        <div class="svc-row"><span>Nettoyage nuque</span><span>18 $</span></div>
+        <div class="svc-row"><span>Coloration</span><span>43 $ · autres techniques 70 $</span></div>
+      </div>
+      </div>
+    </div>
+
+    <div class="svc-block svc-block-5">
+      <div class="svc-tag svc-tag-5">Enfants</div>
+      <div class="svc-rows-wrap">
+      <div class="svc-rows">
+        <div class="svc-row"><span>0-12 ans</span><span>34 $ Jr. – 38 $</span></div>
+        <div class="svc-row"><span>13-17 ans</span><span>40 $ Jr. – 46 $</span></div>
+        <div class="svc-row"><span>Coupe &amp; mise en plis 13-17</span><span>51 $ Jr.</span></div>
+        <div class="svc-row"><span>Tresses</span><span>28 $</span></div>
+      </div>
+      </div>
+    </div>
+
     <div class="eco-note">
       <span class="leaf"></span>
-      <span>Fluide est un salon certifié <strong>Green Circle Salons</strong>. Un frais écoresponsable de <strong>2 %</strong> est ajouté à chaque service pour financer la récupération et le recyclage de nos matières (cheveux, tubes de couleur, papier alu).</span>
-    </div>
-
-    <div style="background:var(--rouge); color:var(--ivoire); text-align:center; padding:20px; border-radius:4px; margin-bottom:44px;">
-      <strong style="font-family:'Playfair Display', serif; font-size:1.15rem; letter-spacing:.04em;">SUR RENDEZ-VOUS UNIQUEMENT</strong>
-      <p style="font-size:.85rem; margin-top:6px; color:#EAD9D3;">Tous nos rendez-vous sont pris en personne par notre réceptionniste, qui est également coiffeuse. Elle prend le temps de comprendre vos besoins afin de vous offrir une expérience parfaitement adaptée.</p>
-    </div>
-
-    <div class="services-grid">
-
-      <details class="svc svc-1">
-        <summary>Coupe &amp; mise en plis</summary>
-        <div class="svc-list">
-          <div class="svc-row"><span>Cheveux court</span><span>54 $ Jr. – 70 $</span></div>
-          <div class="svc-row"><span>Cheveux mi-long</span><span>59 $ Jr. – 76 $</span></div>
-          <div class="svc-row"><span>Cheveux long</span><span>71 $ Jr. – 84 $</span></div>
-          <div class="svc-row"><span>Frange</span><span>16 $</span></div>
-          <div class="svc-row"><span>Up-do (coiffure de soirée)</span><span>à partir de 70 $ Jr. – 80 $</span></div>
-          <div class="svc-row"><span>Mise en plis cheveux court</span><span>40 $ Jr. – 47 $</span></div>
-          <div class="svc-row"><span>Mise en plis cheveux long</span><span>49 $ Jr. – 53 $</span></div>
-          <span class="eco-tag">+ 2 % frais Green Circle sur chaque service</span>
-        </div>
-      </details>
-
-      <details class="svc svc-2">
-        <summary>Coloration</summary>
-        <div class="svc-list">
-          <div class="svc-row"><span>Coloration régulière</span><span>66 $+</span></div>
-          <div class="svc-row"><span>Coloration complète</span><span>81 $+</span></div>
-          <div class="svc-row"><span>Coloration 3 semaines</span><span>53 $+</span></div>
-          <div class="svc-row"><span>Extra 10g</span><span>14 $+</span></div>
-          <div class="svc-row"><span>Décoloration</span><span>110 $+</span></div>
-          <div class="svc-row"><span>Gloss / Toner</span><span>46 $+</span></div>
-          <div class="svc-row"><span>Correction couleur</span><span>à partir de 160 $/h</span></div>
-          <div class="svc-row"><span>Démaquillant</span><span>69 $+</span></div>
-          <span class="eco-tag">+ 2 % frais Green Circle sur chaque service</span>
-        </div>
-      </details>
-
-      <details class="svc svc-3">
-        <summary>Mèches &amp; balayage</summary>
-        <div class="svc-list">
-          <div class="svc-row"><span>Tête complète</span><span>200 $+ Jr / 220 $+</span></div>
-          <div class="svc-row"><span>3/4 tête</span><span>150 $+ Jr / 172 $+</span></div>
-          <div class="svc-row"><span>1/2 tête</span><span>140 $+ Jr / 160 $+</span></div>
-          <div class="svc-row"><span>1/4 tête</span><span>80 $+ Jr / 91 $+</span></div>
-          <div class="svc-row"><span>Balayage cheveux court</span><span>170 $+ Jr / 195 $+</span></div>
-          <div class="svc-row"><span>Balayage cheveux long</span><span>240 $+ Jr / 274 $+</span></div>
-          <div class="svc-row"><span>Babylight</span><span>à partir de 150 $ Jr / 200 $</span></div>
-          <div class="svc-row"><span>Contouring gloss inclus</span><span>à partir de 125 $</span></div>
-          <span class="eco-tag">+ 2 % frais Green Circle sur chaque service</span>
-        </div>
-      </details>
-
-      <details class="svc svc-4">
-        <summary>Botox capillaire &amp; lissage</summary>
-        <div class="svc-list">
-          <div class="svc-row"><span>Botox capillaire</span><span>à partir de 150 $</span></div>
-          <div class="svc-row"><span>Lissage brésilien</span><span>à partir de 400 $</span></div>
-          <span class="eco-tag">+ 2 % frais Green Circle sur chaque service</span>
-        </div>
-      </details>
-
-      <details class="svc svc-5">
-        <summary>Extensions &amp; G.Wave</summary>
-        <div class="svc-list">
-          <div class="svc-row"><span>Consultation extension / volumateur</span><span>gratuite, 15 min</span></div>
-          <div class="svc-row"><span>Matériel non inclus</span><span>à partir de 110 $/h</span></div>
-          <span class="eco-tag">+ 2 % frais Green Circle sur chaque service</span>
-        </div>
-      </details>
-
-      <details class="svc svc-6">
-        <summary>Hommes</summary>
-        <div class="svc-list">
-          <div class="svc-row"><span>Coupe stylisée</span><span>41 $ Jr. – 47 $</span></div>
-          <div class="svc-row"><span>Coupe aux 2 semaines</span><span>30 $ Jr. – 35 $</span></div>
-          <div class="svc-row"><span>Rasage simple</span><span>29 $</span></div>
-          <div class="svc-row"><span>Nettoyage nuque</span><span>18 $</span></div>
-          <div class="svc-row"><span>Coloration</span><span>43 $ · autres techniques 70 $</span></div>
-          <span class="eco-tag">+ 2 % frais Green Circle sur chaque service</span>
-        </div>
-      </details>
-
-      <details class="svc svc-7">
-        <summary>Enfants</summary>
-        <div class="svc-list">
-          <div class="svc-row"><span>0-12 ans</span><span>34 $ Jr. – 38 $</span></div>
-          <div class="svc-row"><span>13-17 ans</span><span>40 $ Jr. – 46 $</span></div>
-          <div class="svc-row"><span>Coupe &amp; mise en plis 13-17</span><span>51 $ Jr.</span></div>
-          <div class="svc-row"><span>Tresses</span><span>28 $</span></div>
-          <span class="eco-tag">+ 2 % frais Green Circle sur chaque service</span>
-        </div>
-      </details>
-
-      <details class="svc svc-8">
-        <summary>Soins capillaires</summary>
-        <div class="svc-list">
-          <div class="svc-row"><span>Soin capillaire</span><span>à partir de 20 $+</span></div>
-          <div class="svc-row"><span>Massage crânien (Chantale, 20 min sur chaise)</span><span>35 $</span></div>
-          <div class="svc-row"><span>Consultation</span><span>gratuite, sur rendez-vous</span></div>
-          <span class="eco-tag">+ 2 % frais Green Circle sur chaque service</span>
-        </div>
-      </details>
-
+      <span>Fluide est un salon certifié <strong>Green Circle Salons</strong> — 2 % de frais écoresponsable sur chaque service, pour la récupération et le recyclage de nos matières.</span>
     </div>
   </div>
 </section>
@@ -684,7 +720,7 @@
     <div class="section-head center">
       <span class="eyebrow">L'équipe</span>
       <h2>Des artisans du cheveu, à l'écoute.</h2>
-      <p style="font-style:italic; font-family:'Playfair Display', serif; color:var(--rouge); font-size:1.1rem; margin-top:10px;">Plus qu'une équipe, une famille.</p>
+      <p style="font-style:italic; font-family:'Playfair Display', serif; color:var(--rouge); font-size:.88rem; margin-top:4px;">Plus qu'une équipe, une famille.</p>
     </div>
 
     <div class="proprio-feature">
@@ -815,57 +851,28 @@
       <h2>Le salon, en images.</h2>
     </div>
     <div class="galerie-grid">
-      <img src="https://fluidecoiffure.com/wp-content/uploads/2023/04/58741E8A-8540-43D9-B6CA-4ECFADB893E5.jpeg" alt="">
-      <img src="https://fluidecoiffure.com/wp-content/uploads/2023/04/576B2B2F-506D-4752-967A-1107290A6E35-scaled.jpeg" alt="">
-      <img src="https://fluidecoiffure.com/wp-content/uploads/2025/02/IMG_2890.jpeg" alt="">
-      <img src="https://fluidecoiffure.com/wp-content/uploads/2021/01/D0A50AD0-B175-4119-B451-BF1D37C63DB8-scaled.jpeg" alt="">
-      <img src="https://fluidecoiffure.com/wp-content/uploads/2022/10/7CBF039B-E9FD-480E-A7CB-8ABE8CF81CEE.jpeg" alt="">
-      <img src="https://fluidecoiffure.com/wp-content/uploads/2021/01/D391147D-C1C6-4484-BF89-9E959053F02B-scaled.jpeg" alt="">
-      <img src="https://fluidecoiffure.com/wp-content/uploads/2022/02/8048A7D8-94DE-4D5D-9D68-E7A92B730407.jpeg" alt="">
-      <img src="https://fluidecoiffure.com/wp-content/uploads/2021/01/31041072-6EFF-45D6-9EF9-CC59DAAAE768-scaled.jpeg" alt="">
-      <img src="https://raw.githubusercontent.com/annieclauderemillard-wq/fluide/main/image1.jpeg" alt="Salon Fluide Coiffure">
-      <img src="https://raw.githubusercontent.com/annieclauderemillard-wq/fluide/main/image6.jpeg" alt="Salon Fluide Coiffure">
-    </div>
-  </div>
-</section>
-
-<section style="padding:70px 0 90px; background:var(--creme);">
-  <div class="wrap">
-    <div class="section-head center" style="margin-bottom:36px;">
-      <span class="eyebrow" style="justify-content:center;">Suivez-nous</span>
-      <h2>Voir plus sur Instagram</h2>
-    </div>
-    <div class="insta-carousel">
-      <blockquote class="instagram-media" data-instgrm-permalink="LIEN_PUBLICATION_1" data-instgrm-version="14"></blockquote>
-      <blockquote class="instagram-media" data-instgrm-permalink="LIEN_PUBLICATION_2" data-instgrm-version="14"></blockquote>
-      <blockquote class="instagram-media" data-instgrm-permalink="LIEN_PUBLICATION_3" data-instgrm-version="14"></blockquote>
-      <blockquote class="instagram-media" data-instgrm-permalink="LIEN_PUBLICATION_4" data-instgrm-version="14"></blockquote>
-      <blockquote class="instagram-media" data-instgrm-permalink="LIEN_PUBLICATION_5" data-instgrm-version="14"></blockquote>
-      <blockquote class="instagram-media" data-instgrm-permalink="LIEN_PUBLICATION_6" data-instgrm-version="14"></blockquote>
-    </div>
-    <script async src="//www.instagram.com/embed.js"></script>
-    <div style="text-align:center; margin-top:34px;">
-      <a href="https://www.instagram.com/fluidecoiffure/?hl=fr-ca" class="btn">@fluidecoiffure sur Instagram</a>
+      <img class="g1" src="https://raw.githubusercontent.com/annieclauderemillard-wq/fluide/main/image1.jpeg" alt="Salon Fluide Coiffure">
+      <img class="g2" src="https://raw.githubusercontent.com/annieclauderemillard-wq/fluide/main/salon-comptoir.jpg" alt="Comptoir du salon Fluide">
+      <img class="g3" src="https://raw.githubusercontent.com/annieclauderemillard-wq/fluide/main/image5.jpeg" alt="Salon Fluide Coiffure">
     </div>
   </div>
 </section>
 
 <section class="contact" id="contact">
-  <div class="wrap contact-grid">
-    <div>
+  <div class="wrap">
+    <div class="section-head" style="margin-bottom:34px;">
       <span class="eyebrow">Nous trouver</span>
-      <h2>Venez nous voir<br>à St-Hubert.</h2>
-
-      <div class="info-block" style="margin-top:40px;">
+      <h2>Venez nous voir à St-Hubert.</h2>
+    </div>
+    <div class="contact-grid-4">
+      <div class="info-block">
         <h4>Adresse</h4>
         <p>5440, boul. Cousineau<br>St-Hubert, QC J3Y 7J8</p>
       </div>
       <div class="info-block">
         <h4>Téléphone</h4>
         <p><a href="tel:4506768405">450-676-8405</a></p>
-      </div>
-      <div class="info-block">
-        <h4>Heures d'ouverture</h4>
+        <h4 style="margin-top:18px;">Heures d'ouverture</h4>
         <p>Mardi, mercredi, jeudi : 8h – 20h<br>
         Vendredi : 8h – 15h<br>
         Samedi : 8h – 13h<br>
@@ -874,25 +881,36 @@
       <div class="info-block">
         <h4>Suivez-nous</h4>
         <div class="socials">
-          <a href="https://facebook.com/fluidecoiffure" aria-label="Facebook">FB</a>
-          <a href="https://www.instagram.com/fluidecoiffure/?hl=fr-ca" aria-label="Instagram">IG</a>
+          <a href="https://facebook.com/fluidecoiffure" aria-label="Facebook"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M13.5 21v-7.8h2.6l.4-3h-3v-1.9c0-.87.24-1.46 1.5-1.46h1.6V4.14C15.9 4.1 15 4 13.9 4c-2.3 0-3.9 1.4-3.9 4v2.2H7.4v3H10V21h3.5Z"/></svg></a>
+          <a href="https://www.instagram.com/fluidecoiffure/?hl=fr-ca" aria-label="Instagram"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></a>
           <a href="https://www.tiktok.com/@fluidecoiffure" aria-label="TikTok">TT</a>
         </div>
         <div class="eco-badge">Membre Green Circle Salons</div>
       </div>
-    </div>
-    <div>
-      <span class="eyebrow">Écrivez-nous</span>
-      <h2 style="margin-bottom:28px;">Une question ?</h2>
-      <form>
-        <input type="text" placeholder="Nom">
-        <input type="email" placeholder="Courriel">
-        <textarea placeholder="Message"></textarea>
-        <button type="submit" class="btn" style="align-self:flex-start; border:none; cursor:pointer;">Envoyer</button>
-      </form>
+      <div class="info-block">
+        <h4>Écrivez-nous</h4>
+        <p style="color:#EDE1D6; margin-bottom:16px;">Vous préférez nous écrire plutôt que téléphoner ? Un petit clic suffit.</p>
+        <label for="contact-modal-toggle" class="btn" style="cursor:pointer;">Écrivez-nous</label>
+      </div>
     </div>
   </div>
 </section>
+
+<input type="checkbox" id="contact-modal-toggle" class="modal-toggle">
+<div class="modal-overlay">
+  <label for="contact-modal-toggle" class="modal-backdrop"></label>
+  <div class="modal-box">
+    <label for="contact-modal-toggle" class="modal-close" aria-label="Fermer">✕</label>
+    <span class="eyebrow">Écrivez-nous</span>
+    <h2 style="margin-bottom:22px; font-size:1.6rem;">Une question ?</h2>
+    <form>
+      <input type="text" placeholder="Nom">
+      <input type="email" placeholder="Courriel">
+      <textarea placeholder="Message"></textarea>
+      <button type="submit" class="btn" style="align-self:flex-start; border:none; cursor:pointer;">Envoyer</button>
+    </form>
+  </div>
+</div>
 
 <footer>
   <div class="wrap footer-row">
