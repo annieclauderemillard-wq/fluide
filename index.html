@@ -169,6 +169,7 @@
     #menu-toggle:checked ~ nav{transform:translateX(0); visibility:visible;}
     #menu-toggle:checked ~ .nav-overlay{opacity:1; pointer-events:auto;}
     .burger{display:flex;}
+    .navbar .logo{display:none;}
   }
 
   /* ---------- HERO ---------- */
@@ -206,10 +207,6 @@
   .hero-fineprint{font-family:'Montserrat', sans-serif; font-size:0.75rem; letter-spacing:.15em; color:#D8CDBE; line-height:1.8; text-align:left; border-left:2px solid var(--bourgogne-clair); padding-left:12px;}
 
   @media (max-width:760px){
-    /* le logo FLUIDE/COIFFURE du hero fait doublon avec la barre de nav sur mobile : on le masque,
-       en gardant seulement la mention « DEPUIS AOÛT 2005 » */
-    .hero-top .hero-lockup, .hero-top .hero-lockup-rule, .hero-top .hero-lockup-sub{display:none;}
-    .hero-since{margin-top:0;}
     /* le 16/9 (paysage) est trop court sur mobile : on laisse le contenu définir la hauteur
        et l'image couvre toute la zone, avec un focal recentré */
     .hero-photo-wrap{aspect-ratio:auto; min-height:88vh;}
@@ -521,8 +518,8 @@
     .partners-grid{grid-template-columns:repeat(2,1fr); gap:10px;}
     /* les noms longs (RAPHAËL PERRIER, RENÉ FURTERER…) débordaient : on réduit la taille,
        on enlève l'interlettrage et on laisse plus de place */
-    .partners-grid span{font-size:0.9rem; padding:15px 6px; min-height:74px; letter-spacing:0 !important; line-height:1.35;}
-    .partners-grid span small{font-size:0.7rem; letter-spacing:.02em;}
+    .partners-grid span{flex-direction:column; font-size:0.9rem; padding:15px 8px; min-height:74px; letter-spacing:0 !important; line-height:1.3;}
+    .partners-grid span small{font-size:0.68rem; letter-spacing:.02em; max-width:100%; overflow-wrap:anywhere;}
   }
 
   /* ---------- INSTAGRAM CAROUSEL ---------- */
