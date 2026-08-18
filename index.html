@@ -235,9 +235,9 @@
   .experience-strip img{width:100%; height:300px; object-fit:cover; object-position:center 55%; border-radius:4px;}
   .experience-strip-2{grid-template-columns:repeat(2,1fr);}
   .exp-cell{height:400px; border-radius:4px; overflow:hidden;}
-  .exp-cell img{height:100%; border-radius:0;}
+  .experience-strip .exp-cell img{height:100%; border-radius:0;}
   /* F3 café : zoom vers la tasse (bas-gauche) pour sortir la fenêtre de droite du cadre */
-  .exp-crop-cafe{transform:scale(1.32); transform-origin:10% 60%;}
+  .exp-crop-cafe{object-position:center 78%; transform:scale(1.32); transform-origin:10% 78%;}
   .experience-strip-5{grid-template-columns:repeat(5,1fr);}
   .experience-grid{display:flex; justify-content:space-between; gap:60px; flex-wrap:wrap; font-size:1.09rem; color:var(--taupe); align-items:flex-start;}
   .experience-icons{list-style:none; display:flex; flex-direction:column; gap:16px; font-size:1.01rem; color:var(--noir);}
@@ -246,7 +246,7 @@
     width:32px; height:32px; border-radius:50%; border:1px solid var(--sable);
     display:flex; align-items:center; justify-content:center; font-size:1.03rem; color:var(--rouge); flex:0 0 auto;
   }
-  @media (max-width:760px){.experience-strip{grid-template-columns:repeat(2,1fr);} .experience-strip img{height:210px;} .exp-cell{height:300px;}}
+  @media (max-width:760px){.experience-strip{grid-template-columns:repeat(2,1fr);} .exp-cell{height:300px;}}
 
   .sf-carousel{position:relative;}
   .sf-track{display:flex; gap:16px; overflow-x:auto; scroll-snap-type:x mandatory;
@@ -290,7 +290,8 @@
   }
   .histoire-badge strong{display:block; font-size:2rem; font-style:normal; color:var(--ivoire); font-weight:600;}
   .histoire .eyebrow{color:var(--ivoire); opacity:.85;}
-  .histoire h2{color:var(--ivoire);}
+  .histoire h2{color:var(--noir); background:var(--ivoire); display:inline-block;
+    padding:12px 26px; border-radius:14px; box-shadow:0 12px 30px rgba(26,23,20,.28); line-height:1.2;}
   .histoire-text p{margin-bottom:20px; color:var(--ivoire); font-weight:300;}
   .histoire .btn.ghost{border-color:var(--ivoire); color:var(--ivoire);}
   .histoire .btn.ghost:hover{background:var(--noir); border-color:var(--noir); color:var(--ivoire);}
@@ -334,14 +335,16 @@
     content:''; position:relative; z-index:2; display:block; width:34px; height:2px; background:var(--rouge); margin-top:4px;
   }
   @media (max-width:760px){
-    .mosaic{grid-template-columns:repeat(2,1fr); grid-template-rows:repeat(5,180px);}
-    .m1{grid-column:1/3; grid-row:1;}
-    .m2{grid-column:1/3; grid-row:2;}
-    .m3{grid-column:1; grid-row:3;}
-    .m4{grid-column:2; grid-row:3;}
-    .m5{grid-column:1; grid-row:4;}
-    .m6{grid-column:2; grid-row:4;}
-    .m7{grid-column:1/3; grid-row:5;}
+    .mosaic{grid-template-columns:repeat(2,1fr); grid-template-rows:repeat(4,150px);}
+    .m1{display:none;}
+    .m2{grid-column:1/3; grid-row:1;}
+    .m3{grid-column:1; grid-row:2;}
+    .m4{grid-column:2; grid-row:2;}
+    .m5{grid-column:1; grid-row:3;}
+    .m6{grid-column:2; grid-row:3;}
+    .m7{grid-column:1/3; grid-row:4;}
+    #galerie{padding:34px 0 !important;}
+    #galerie .section-head{margin-bottom:20px !important;}
   }
 
   .adn-icons{display:flex; justify-content:center; gap:50px; flex-wrap:wrap; text-align:center;}
@@ -355,18 +358,18 @@
   }
 
   .hero-icons-band{
-    position:relative; z-index:2;
-    display:flex; justify-content:center; gap:clamp(20px,5vw,60px); flex-wrap:wrap;
-    padding:26px clamp(20px,6vw,70px);
-    background:var(--creme);
+    position:relative; z-index:2; margin-top:26px; padding-top:22px;
+    display:flex; justify-content:flex-start; gap:clamp(20px,5vw,54px); flex-wrap:wrap;
+    border-top:1px solid rgba(250,248,244,.28);
   }
   .hero-icons-band > div{text-align:center;}
-  .hero-icons-band .adn-emoji{color:var(--taupe);}
-  .hero-icons-band span{font-family:'Montserrat',sans-serif; font-size:0.78rem; letter-spacing:.08em; text-transform:uppercase; display:block; color:var(--noir);}
+  .hero-icons-band .adn-emoji{color:var(--ivoire); opacity:.9;}
+  .hero-icons-band span{font-family:'Montserrat',sans-serif; font-size:0.78rem; letter-spacing:.08em; text-transform:uppercase; display:block; color:var(--ivoire); text-shadow:0 1px 8px rgba(0,0,0,.4);}
   @media (max-width:700px){
-    .hero-icons-band{gap:12px; padding:16px 16px 18px;}
-    .hero-icons-band .adn-emoji{width:20px; height:20px; margin-bottom:5px;}
-    .hero-icons-band span{font-size:0.75rem;}
+    .hero-icons-band{gap:10px; padding-top:16px; margin-top:18px; justify-content:space-between;}
+    .hero-icons-band > div{flex:1 1 0; min-width:0;}
+    .hero-icons-band .adn-emoji{width:20px; height:20px; margin-bottom:4px;}
+    .hero-icons-band span{font-size:0.68rem; letter-spacing:.02em;}
   }
 
   /* ---------- SERVICES ---------- */
@@ -496,7 +499,7 @@
     display:block; width:100%; height:100%; border-radius:50%; overflow:hidden;
     box-shadow:0 14px 28px rgba(35,33,30,.16); background:var(--blanc);
   }
-  .membre-photo img{width:100%; height:100%; object-fit:cover; object-position:center 15%;}
+  .membre-photo img{width:100%; height:100%; object-fit:cover; object-position:center 8%;}
   .membre h4{font-size:1.15rem; margin-bottom:4px; font-weight:500; color:var(--noir);}
   .membre .role{font-size:0.78rem; text-transform:uppercase; letter-spacing:.1em; color:var(--sauge-fonce); margin-bottom:12px; display:block; font-family:'Lato',sans-serif;}
   .membre p{font-size:0.98rem; color:var(--taupe); font-weight:300;}
@@ -535,7 +538,10 @@
   .fiche-body p strong{color:var(--noir); font-weight:600;}
   .equipe-disclaimer{
     margin:56px auto 0; max-width:640px; text-align:center; position:relative; z-index:2;
+    background:var(--ivoire); border:1px solid var(--sable); border-radius:16px;
+    padding:28px 32px; box-shadow:0 16px 36px rgba(35,33,30,.12);
   }
+  @media (max-width:520px){.equipe-disclaimer{padding:22px 20px; margin-top:40px;}}
   .equipe-disclaimer .avis{
     font-size:0.9rem; color:var(--taupe); line-height:1.6; margin-bottom:14px;
   }
@@ -736,8 +742,6 @@
         <a href="tel:4506768405" class="hero-cta-btn">Prendre rendez-vous</a>
         <div class="hero-fineprint" style="margin-top:24px;">SALON HAUT DE GAMME · SUR RENDEZ-VOUS UNIQUEMENT</div>
       </div>
-    </div>
-  </div>
   <div class="hero-icons-band">
     <div>
       <svg class="adn-emoji" viewBox="0 0 32 32" fill="none"><path d="M16 27C8 21 4 16.5 4 11.5 4 7.9 6.9 5 10.5 5c2.1 0 4 1 5.5 2.8C17.5 6 19.4 5 21.5 5 25.1 5 28 7.9 28 11.5 28 16.5 24 21 16 27Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
@@ -754,6 +758,8 @@
     <div>
       <svg class="adn-emoji" viewBox="0 0 32 32" fill="none"><path d="M16 5 19.5 13 28 14 21.5 19.5 23.5 28 16 23.5 8.5 28 10.5 19.5 4 14 12.5 13Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
       <span>Confiance</span>
+    </div>
+  </div>
     </div>
   </div>
 </section>
