@@ -358,18 +358,19 @@
   }
 
   .hero-icons-band{
-    position:relative; z-index:2; margin-top:26px; padding-top:22px;
-    display:flex; justify-content:flex-start; gap:clamp(20px,5vw,54px); flex-wrap:wrap;
-    border-top:1px solid rgba(250,248,244,.28);
+    position:relative; z-index:2;
+    display:flex; justify-content:center; gap:clamp(20px,5vw,60px); flex-wrap:wrap;
+    padding:26px clamp(20px,6vw,70px);
+    background:var(--creme);
   }
   .hero-icons-band > div{text-align:center;}
-  .hero-icons-band .adn-emoji{color:var(--ivoire); opacity:.9;}
-  .hero-icons-band span{font-family:'Montserrat',sans-serif; font-size:0.78rem; letter-spacing:.08em; text-transform:uppercase; display:block; color:var(--ivoire); text-shadow:0 1px 8px rgba(0,0,0,.4);}
+  .hero-icons-band .adn-emoji{color:var(--taupe);}
+  .hero-icons-band span{font-family:'Montserrat',sans-serif; font-size:0.78rem; letter-spacing:.08em; text-transform:uppercase; display:block; color:var(--noir);}
   @media (max-width:700px){
-    .hero-icons-band{gap:10px; padding-top:16px; margin-top:18px; justify-content:space-between;}
+    .hero-icons-band{gap:8px; padding:16px 12px 18px; justify-content:space-between;}
     .hero-icons-band > div{flex:1 1 0; min-width:0;}
-    .hero-icons-band .adn-emoji{width:20px; height:20px; margin-bottom:4px;}
-    .hero-icons-band span{font-size:0.68rem; letter-spacing:.02em;}
+    .hero-icons-band .adn-emoji{width:20px; height:20px; margin-bottom:5px;}
+    .hero-icons-band span{font-size:0.7rem; letter-spacing:.02em;}
   }
 
   /* ---------- SERVICES ---------- */
@@ -490,16 +491,16 @@
   .equipe-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:50px 30px; position:relative; z-index:2; align-items:stretch;}
   .membre{text-align:center; display:flex; flex-direction:column;}
   .membre-photo{
-    position:relative; width:160px; height:160px; margin:0 auto 20px;
+    position:relative; width:170px; height:212px; margin:0 auto 20px;
   }
   .membre-photo .ring{
-    position:absolute; inset:-6px; border-radius:50%; border:1.5px solid var(--sauge);
+    position:absolute; inset:-6px; border-radius:20px; border:1.5px solid var(--sauge);
   }
   .membre-photo span{
-    display:block; width:100%; height:100%; border-radius:50%; overflow:hidden;
+    display:block; width:100%; height:100%; border-radius:15px; overflow:hidden;
     box-shadow:0 14px 28px rgba(35,33,30,.16); background:var(--blanc);
   }
-  .membre-photo img{width:100%; height:100%; object-fit:cover; object-position:center 8%;}
+  .membre-photo img{width:100%; height:100%; object-fit:cover; object-position:center 22%;}
   .membre h4{font-size:1.15rem; margin-bottom:4px; font-weight:500; color:var(--noir);}
   .membre .role{font-size:0.78rem; text-transform:uppercase; letter-spacing:.1em; color:var(--sauge-fonce); margin-bottom:12px; display:block; font-family:'Lato',sans-serif;}
   .membre p{font-size:0.98rem; color:var(--taupe); font-weight:300;}
@@ -742,6 +743,8 @@
         <a href="tel:4506768405" class="hero-cta-btn">Prendre rendez-vous</a>
         <div class="hero-fineprint" style="margin-top:24px;">SALON HAUT DE GAMME · SUR RENDEZ-VOUS UNIQUEMENT</div>
       </div>
+    </div>
+  </div>
   <div class="hero-icons-band">
     <div>
       <svg class="adn-emoji" viewBox="0 0 32 32" fill="none"><path d="M16 27C8 21 4 16.5 4 11.5 4 7.9 6.9 5 10.5 5c2.1 0 4 1 5.5 2.8C17.5 6 19.4 5 21.5 5 25.1 5 28 7.9 28 11.5 28 16.5 24 21 16 27Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
@@ -758,8 +761,6 @@
     <div>
       <svg class="adn-emoji" viewBox="0 0 32 32" fill="none"><path d="M16 5 19.5 13 28 14 21.5 19.5 23.5 28 16 23.5 8.5 28 10.5 19.5 4 14 12.5 13Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
       <span>Confiance</span>
-    </div>
-  </div>
     </div>
   </div>
 </section>
