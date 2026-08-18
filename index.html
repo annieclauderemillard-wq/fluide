@@ -233,6 +233,11 @@
 
   .experience-strip{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:28px;}
   .experience-strip img{width:100%; height:300px; object-fit:cover; object-position:center 55%; border-radius:4px;}
+  .experience-strip-2{grid-template-columns:repeat(2,1fr);}
+  .exp-cell{height:300px; border-radius:4px; overflow:hidden;}
+  .exp-cell img{height:100%; border-radius:0;}
+  /* F3 café : zoom vers la tasse (bas-gauche) pour sortir la fenêtre de droite du cadre */
+  .exp-crop-cafe{transform:scale(1.45); transform-origin:20% 74%;}
   .experience-strip-5{grid-template-columns:repeat(5,1fr);}
   .experience-grid{display:flex; justify-content:space-between; gap:60px; flex-wrap:wrap; font-size:1.09rem; color:var(--taupe); align-items:flex-start;}
   .experience-icons{list-style:none; display:flex; flex-direction:column; gap:16px; font-size:1.01rem; color:var(--noir);}
@@ -241,7 +246,7 @@
     width:32px; height:32px; border-radius:50%; border:1px solid var(--sable);
     display:flex; align-items:center; justify-content:center; font-size:1.03rem; color:var(--rouge); flex:0 0 auto;
   }
-  @media (max-width:760px){.experience-strip{grid-template-columns:repeat(2,1fr);} .experience-strip img{height:210px;}}
+  @media (max-width:760px){.experience-strip{grid-template-columns:repeat(2,1fr);} .experience-strip img{height:210px;} .exp-cell{height:210px;}}
 
   .sf-carousel{position:relative;}
   .sf-track{display:flex; gap:16px; overflow-x:auto; scroll-snap-type:x mandatory;
@@ -758,10 +763,9 @@
     <div class="section-head" style="margin-bottom:36px;">
       <span class="eyebrow">L'expérience Fluide</span>
     </div>
-    <div class="experience-strip">
-      <img src="https://raw.githubusercontent.com/annieclauderemillard-wq/fluide/main/F2.jfif" style="object-position:center 62%;" alt="Coin détente et accueil, salon Fluide">
-      <img src="https://raw.githubusercontent.com/annieclauderemillard-wq/fluide/main/F13.jfif" style="object-position:center 48%;" alt="Postes de coiffage du salon Fluide">
-      <img src="https://raw.githubusercontent.com/annieclauderemillard-wq/fluide/main/F3.jfif" style="object-position:center 58%;" alt="Café servi au salon Fluide">
+    <div class="experience-strip experience-strip-2">
+      <div class="exp-cell"><img src="https://raw.githubusercontent.com/annieclauderemillard-wq/fluide/main/F13.jfif" style="object-position:center 48%;" alt="Postes de coiffage du salon Fluide"></div>
+      <div class="exp-cell"><img class="exp-crop-cafe" src="https://raw.githubusercontent.com/annieclauderemillard-wq/fluide/main/F3.jfif" alt="Café servi au salon Fluide"></div>
     </div>
     <div class="experience-grid">
       <div style="max-width:480px;">
