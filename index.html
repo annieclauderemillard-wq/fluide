@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -477,7 +476,7 @@
   .proprio-text h3{font-size:1.6rem; margin:6px 0 10px; color:var(--noir);}
   .proprio-text p{font-size:1.06rem; color:var(--taupe); max-width:520px;}
   .proprio-photo{width:150px; height:150px; border-radius:50%; overflow:hidden; flex:0 0 auto; box-shadow:0 14px 30px rgba(35,33,30,.18); border:3px solid var(--blanc);}
-  .proprio-photo img{width:100%; height:100%; object-fit:cover; object-position:center 18%; transform:scale(1.3); transform-origin:center 25%; filter:grayscale(1) contrast(1.04);}
+  .proprio-photo img{width:100%; height:100%; object-fit:cover; object-position:center top; filter:grayscale(1) contrast(1.03);}
   @media (max-width:700px){.proprio-feature{flex-direction:column; text-align:center; gap:20px;}}
 
   .equipe-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:50px 30px; position:relative; z-index:2; align-items:stretch;}
@@ -503,6 +502,45 @@
   }
   @media (max-width:900px){.equipe-grid{grid-template-columns:repeat(2,1fr);}}
   @media (max-width:520px){.equipe-grid{grid-template-columns:1fr;} .membre-info{min-height:0;}}
+
+  /* ---------- Fiches humoristiques d'équipe (repliables) ---------- */
+  .fiche{margin-top:14px; text-align:left;}
+  .fiche summary{
+    list-style:none; cursor:pointer; display:inline-flex; align-items:center; gap:7px;
+    margin:0 auto; padding:7px 16px; border:1px solid var(--sable); border-radius:100px;
+    font-family:'Montserrat',sans-serif; font-size:0.7rem; letter-spacing:.12em; text-transform:uppercase;
+    color:var(--rouge); font-weight:600; transition:background .25s ease, color .25s ease; user-select:none;
+  }
+  .fiche summary::-webkit-details-marker{display:none;}
+  .fiche summary::after{content:'+'; font-size:1rem; line-height:1; margin-left:2px;}
+  .fiche[open] summary::after{content:'\2013';}
+  .fiche summary:hover{background:var(--rouge); color:var(--ivoire); border-color:var(--rouge);}
+  .fiche-wrap{display:flex; justify-content:center;}
+  .fiche-body{
+    margin-top:14px; padding:16px 18px; background:var(--ivoire); border:1px solid var(--sable);
+    border-radius:10px; text-align:left; animation:ficheIn .3s ease;
+  }
+  @keyframes ficheIn{from{opacity:0; transform:translateY(-4px);} to{opacity:1; transform:none;}}
+  .fiche-signe{
+    font-family:'Playfair Display',serif; font-size:1.02rem; color:var(--noir);
+    text-align:center; margin-bottom:12px; padding-bottom:10px; border-bottom:1px solid var(--sable);
+  }
+  .fiche-body p{font-size:0.92rem; line-height:1.5; color:var(--taupe); margin-bottom:9px;}
+  .fiche-body p:last-child{margin-bottom:0;}
+  .fiche-body p strong{color:var(--noir); font-weight:600;}
+  .equipe-disclaimer{
+    margin:56px auto 0; max-width:640px; text-align:center; position:relative; z-index:2;
+  }
+  .equipe-disclaimer .avis{
+    font-size:0.9rem; color:var(--taupe); line-height:1.6; margin-bottom:14px;
+  }
+  .equipe-disclaimer .tagline{
+    font-family:'Playfair Display',serif; font-style:italic; font-size:1.15rem; color:var(--rouge);
+  }
+  @media (max-width:520px){
+    .fiche summary{font-size:0.72rem; padding:9px 18px;}
+    .fiche-body p{font-size:0.95rem;}
+  }
   .equipe .section-head{margin-bottom:20px;}
   .equipe .section-head h2{font-size:1.5rem;}
   #services .section-head .eyebrow{color:#B8CC96;}
@@ -865,72 +903,158 @@
     </div>
 
     <div class="proprio-feature">
-      <div class="proprio-photo"><img src="https://raw.githubusercontent.com/annieclauderemillard-wq/fluide/main/samana-portrait.jpg" alt="Samana Caroline Dubé, propriétaire de Fluide Coiffure"></div>
+      <div class="proprio-photo"><img src="https://raw.githubusercontent.com/annieclauderemillard-wq/fluide/main/caroline.jpeg" alt="Samana Caroline Dubé, propriétaire de Fluide Coiffure"></div>
       <div class="proprio-text">
         <span class="role">Propriétaire · Fondatrice</span>
         <h3>Samana Caroline Dubé</h3>
         <p>Fondatrice de Fluide en 2005, formée chez Rusk puis chez Raphaël Perrier. Elle partage ses connaissances acquises en voyageant à travers le monde.</p>
+        <div class="fiche-wrap"><details class="fiche">
+          <summary>Voir sa fiche</summary>
+          <div class="fiche-body">
+            <p class="fiche-signe">♊ Gémeaux · 🐭 Rat</p>
+            <p><strong>🧬 Diagnostic — </strong>Cerveau en ébullition permanente.</p>
+            <p><strong>✨ Superpouvoir — </strong>Transformer une simple idée en projet ambitieux avant même la fin de votre shampoing.</p>
+            <p><strong>⚠️ Effets secondaires — </strong>Vous pourriez repartir avec une nouvelle coiffure… et une liste d’objectifs pour les six prochains mois.</p>
+          </div>
+        </details></div>
       </div>
     </div>
 
     <div class="equipe-grid">
 
       <div class="membre">
-        <div class="membre-photo"><div class="ring"></div><span><img src="https://fluidecoiffure.com/wp-content/uploads/2023/04/0381E29E-5F2E-425E-9D75-21E85F9DDF2A.jpeg" alt="Maude Lambert"></span></div>
+        <div class="membre-photo"><div class="ring"></div><span><img src="https://raw.githubusercontent.com/annieclauderemillard-wq/fluide/main/maude.jpeg" alt="Maude Lambert"></span></div>
         <div class="membre-info"><h4>Maude Lambert</h4>
         <span class="role">Styliste sénior</span>
-        <p>Plus de 20 ans d'expérience, spécialisée en coupe et coloration pour tous. Grande écoute et travail minutieux.</p></div>
+        <p>Plus de 20 ans d'expérience, spécialisée en coupe et coloration pour tous. Grande écoute et travail minutieux.</p>
+        <div class="fiche-wrap"><details class="fiche">
+          <summary>Voir sa fiche</summary>
+          <div class="fiche-body">
+            <p class="fiche-signe">♎ Balance · 🐓 Coq</p>
+            <p><strong>🧬 Diagnostic — </strong>Allergique aux cheveux de travers.</p>
+            <p><strong>✨ Superpouvoir — </strong>Voir les détails invisibles pour le reste de l’humanité.</p>
+            <p><strong>⚠️ Effets secondaires — </strong>Vous risquez de commencer, vous aussi, à replacer les cheveux des gens autour de vous.</p>
+          </div>
+        </details></div></div>
       </div>
 
       <div class="membre">
-        <div class="membre-photo"><div class="ring"></div><span><img src="https://fluidecoiffure.com/wp-content/uploads/2023/04/3669A417-B006-49EB-8CC2-7E2CC8550389.jpeg" alt="Valérie St-Onge"></span></div>
+        <div class="membre-photo"><div class="ring"></div><span><img src="https://raw.githubusercontent.com/annieclauderemillard-wq/fluide/main/valerie.jpeg" alt="Valérie St-Onge"></span></div>
         <div class="membre-info"><h4>Valérie St-Onge</h4>
         <span class="role">Styliste sénior</span>
-        <p>24 années d'expérience, perfectionnée chez Vidal Sassoon à Londres. Aussi classique qu'éclatée.</p></div>
+        <p>24 années d'expérience, perfectionnée chez Vidal Sassoon à Londres. Aussi classique qu'éclatée.</p>
+        <div class="fiche-wrap"><details class="fiche">
+          <summary>Voir sa fiche</summary>
+          <div class="fiche-body">
+            <p class="fiche-signe">♍ Vierge · 🐭 Rat</p>
+            <p><strong>🧬 Diagnostic — </strong>Perfectionniste assumée.</p>
+            <p><strong>✨ Superpouvoir — </strong>Détecter une imperfection à 20 mètres… et la faire disparaître.</p>
+            <p><strong>⚠️ Effets secondaires — </strong>Vous passerez devant tous les miroirs en vous disant : « Wow… c’est donc ben beau! »</p>
+          </div>
+        </details></div></div>
       </div>
 
       <div class="membre">
-        <div class="membre-photo"><div class="ring"></div><span><img src="https://fluidecoiffure.com/wp-content/uploads/2023/04/102EEF7A-465B-4C38-9B30-B490E0CA54B9.jpeg" alt="Maryse Grégoire"></span></div>
+        <div class="membre-photo"><div class="ring"></div><span><img src="https://raw.githubusercontent.com/annieclauderemillard-wq/fluide/main/maryse.jpeg" alt="Maryse Grégoire"></span></div>
         <div class="membre-info"><h4>Maryse Grégoire</h4>
         <span class="role">Styliste sénior</span>
-        <p>Plus de 20 ans d'expérience, experte en coupe et coloration, généreuse de son temps et assoiffée de connaissance.</p></div>
+        <p>Plus de 20 ans d'expérience, experte en coupe et coloration, généreuse de son temps et assoiffée de connaissance.</p>
+        <div class="fiche-wrap"><details class="fiche">
+          <summary>Voir sa fiche</summary>
+          <div class="fiche-body">
+            <p class="fiche-signe">♏ Scorpion · 🐕 Chien</p>
+            <p><strong>🧬 Diagnostic — </strong>Dompteuse officielle de cheveux rebelles.</p>
+            <p><strong>✨ Superpouvoir — </strong>Faire obéir les frisottis sans négociation.</p>
+            <p><strong>⚠️ Effets secondaires — </strong>Vos cheveux pourraient refuser qu’une autre personne les touche.</p>
+          </div>
+        </details></div></div>
       </div>
 
       <div class="membre">
-        <div class="membre-photo"><div class="ring"></div><span><img src="https://fluidecoiffure.com/wp-content/uploads/2023/04/17224488-CB13-490A-B521-7F607855AEE7.jpeg" alt="Chantale Daneault"></span></div>
+        <div class="membre-photo"><div class="ring"></div><span><img src="https://raw.githubusercontent.com/annieclauderemillard-wq/fluide/main/chantale.jpeg" alt="Chantale Daneault"></span></div>
         <div class="membre-info"><h4>Chantale Daneault</h4>
         <span class="role">Assistante / réceptionniste</span>
-        <p>Coiffeuse depuis plus de 20 ans et ancienne propriétaire de salon. Formée en massage crânien.</p></div>
+        <p>Coiffeuse depuis plus de 20 ans et ancienne propriétaire de salon. Formée en massage crânien.</p>
+        <div class="fiche-wrap"><details class="fiche">
+          <summary>Voir sa fiche</summary>
+          <div class="fiche-body">
+            <p class="fiche-signe">♓ Poissons · 🐓 Coq</p>
+            <p><strong>🧬 Diagnostic — </strong>Calme olympique.</p>
+            <p><strong>✨ Superpouvoir — </strong>Vous faire sentir en vacances pendant votre rendez-vous.</p>
+            <p><strong>⚠️ Effets secondaires — </strong>Vous pourriez sérieusement envisager de prendre rendez-vous chaque semaine.</p>
+          </div>
+        </details></div></div>
       </div>
 
       <div class="membre">
-        <div class="membre-photo"><div class="ring"></div><span><img src="https://fluidecoiffure.com/wp-content/uploads/2023/04/28BD7972-80AE-44B6-9275-C984629DF55E.jpeg" alt="Vilay Manisy"></span></div>
+        <div class="membre-photo"><div class="ring"></div><span><img src="https://raw.githubusercontent.com/annieclauderemillard-wq/fluide/main/vilay.jpeg" alt="Vilay Manisy"></span></div>
         <div class="membre-info"><h4>Vilay Manisy</h4>
         <span class="role">Assistante coloriste / styliste Jr.</span>
-        <p>Diplômée du Centre de formation Pierre-Dupuy. Motivée, attentionnée, toujours prête à aider ses collègues.</p></div>
+        <p>Diplômée du Centre de formation Pierre-Dupuy. Motivée, attentionnée, toujours prête à aider ses collègues.</p>
+        <div class="fiche-wrap"><details class="fiche">
+          <summary>Voir sa fiche</summary>
+          <div class="fiche-body">
+            <p class="fiche-signe">♊ Gémeaux · 🐍 Serpent</p>
+            <p><strong>🧬 Diagnostic — </strong>Créativité impossible à mettre sur pause.</p>
+            <p><strong>✨ Superpouvoir — </strong>Vous convaincre d’oser un changement… puis vous demander pourquoi vous ne l’avez pas fait avant.</p>
+            <p><strong>⚠️ Effets secondaires — </strong>Vous pourriez arriver pour une coupe… et repartir complètement transformé(e).</p>
+          </div>
+        </details></div></div>
       </div>
 
       <div class="membre">
-        <div class="membre-photo"><div class="ring"></div><span><img src="https://fluidecoiffure.com/wp-content/uploads/2023/04/2D0D0207-C902-470B-BBA1-E7E40FCA1008.jpeg" alt="Carola Camerati"></span></div>
+        <div class="membre-photo"><div class="ring"></div><span><img src="https://raw.githubusercontent.com/annieclauderemillard-wq/fluide/main/carola.jpeg" alt="Carola Camerati"></span></div>
         <div class="membre-info"><h4>Carola Camerati</h4>
         <span class="role">Réceptionniste</span>
-        <p>Vous sert en français, en anglais et en espagnol. Coiffeuse un jour, coiffeuse toujours.</p></div>
+        <p>Vous sert en français, en anglais et en espagnol. Coiffeuse un jour, coiffeuse toujours.</p>
+        <div class="fiche-wrap"><details class="fiche">
+          <summary>Voir sa fiche</summary>
+          <div class="fiche-body">
+            <p class="fiche-signe">♌ Lion · 🐇 Lièvre</p>
+            <p><strong>🧬 Diagnostic — </strong>Sourire contagieux chronique.</p>
+            <p><strong>✨ Superpouvoir — </strong>Faire croire que tout est sous contrôle… même quand le téléphone sonne, que trois clientes arrivent et que la cafetière décide de rendre l’âme.</p>
+            <p><strong>⚠️ Effets secondaires — </strong>Vous aurez l’impression d’être le client préféré de la journée.</p>
+          </div>
+        </details></div></div>
       </div>
 
       <div class="membre">
-        <div class="membre-photo"><div class="ring"></div><span><img src="https://fluidecoiffure.com/wp-content/uploads/2025/02/FullSizeRender-scaled.jpeg" alt="Sydney Bruneau"></span></div>
+        <div class="membre-photo"><div class="ring"></div><span><img src="https://raw.githubusercontent.com/annieclauderemillard-wq/fluide/main/sydney.jpeg" alt="Sydney Bruneau"></span></div>
         <div class="membre-info"><h4>Sydney Bruneau</h4>
         <span class="role">Assistante / styliste Jr.</span>
-        <p>Dans le monde de la coiffure depuis toute jeune. Patiente, généreuse de son temps, souci du détail.</p></div>
+        <p>Dans le monde de la coiffure depuis toute jeune. Patiente, généreuse de son temps, souci du détail.</p>
+        <div class="fiche-wrap"><details class="fiche">
+          <summary>Voir sa fiche</summary>
+          <div class="fiche-body">
+            <p class="fiche-signe">♓ Poissons · 🐓 Coq</p>
+            <p><strong>🧬 Diagnostic — </strong>Gentillesse à un niveau préoccupant.</p>
+            <p><strong>✨ Superpouvoir — </strong>Faire disparaître le stress aussi vite que les pointes fourchues.</p>
+            <p><strong>⚠️ Effets secondaires — </strong>Vous pourriez avoir envie de revenir juste pour jaser avec elle.</p>
+          </div>
+        </details></div></div>
       </div>
 
       <div class="membre">
-        <div class="membre-photo"><div class="ring"></div><span><img src="https://fluidecoiffure.com/wp-content/uploads/2026/01/0c7f7b84-a5ed-4868-a58b-10dcfd4fb835.jpg.jpg" alt="Taïna Santos"></span></div>
+        <div class="membre-photo"><div class="ring"></div><span><img src="https://raw.githubusercontent.com/annieclauderemillard-wq/fluide/main/taina.jpg" alt="Taïna Santos"></span></div>
         <div class="membre-info"><h4>Taïna Santos</h4>
         <span class="role">Coiffeuse apprentie</span>
-        <p>Crée des looks qui mettent en valeur la beauté naturelle, tout en respectant la santé du cheveu.</p></div>
+        <p>Crée des looks qui mettent en valeur la beauté naturelle, tout en respectant la santé du cheveu.</p>
+        <div class="fiche-wrap"><details class="fiche">
+          <summary>Voir sa fiche</summary>
+          <div class="fiche-body">
+            <p class="fiche-signe">♐ Sagittaire · 🐒 Singe</p>
+            <p><strong>🧬 Diagnostic — </strong>Batterie rechargeable à l’énergie positive.</p>
+            <p><strong>✨ Superpouvoir — </strong>Faire rire toute l’équipe sans même essayer.</p>
+            <p><strong>⚠️ Effets secondaires — </strong>Risque élevé de quitter le salon avec des abdos… à force d’avoir ri.</p>
+          </div>
+        </details></div></div>
       </div>
 
+    </div>
+
+    <div class="equipe-disclaimer">
+      <p class="avis">📋 <strong>Avis important :</strong> aucun signe astrologique n’a été consulté dans la réalisation de ces fiches. Toute ressemblance avec la personnalité réelle de notre équipe est… totalement assumée!</p>
+      <p class="tagline">Notre équipe ne se prend pas au sérieux… mais elle prend vos cheveux très au sérieux.</p>
     </div>
   </div>
 </section>
@@ -943,24 +1067,20 @@
     <div class="sf-carousel">
       <button class="sf-btn prev" id="sf-prev" aria-label="Photos précédentes">‹</button>
       <div class="sf-track" id="sf-track">
-        <figure><img src="https://raw.githubusercontent.com/annieclauderemillard-wq/fluide/main/IMG_0010.jpeg" alt="Réalisation Fluide Coiffure" loading="lazy"></figure>
-        <figure><img src="https://raw.githubusercontent.com/annieclauderemillard-wq/fluide/main/IMG_2779.jpeg" alt="Réalisation Fluide Coiffure" loading="lazy"></figure>
-        <figure><img src="https://raw.githubusercontent.com/annieclauderemillard-wq/fluide/main/IMG_2974.jpeg" alt="Réalisation Fluide Coiffure" loading="lazy"></figure>
-        <figure><img src="https://raw.githubusercontent.com/annieclauderemillard-wq/fluide/main/IMG_3062.jpeg" alt="Réalisation Fluide Coiffure" loading="lazy"></figure>
-        <figure><img src="https://raw.githubusercontent.com/annieclauderemillard-wq/fluide/main/IMG_4091.jpeg" alt="Réalisation Fluide Coiffure" loading="lazy"></figure>
-        <figure><img src="https://raw.githubusercontent.com/annieclauderemillard-wq/fluide/main/IMG_4309.jpeg" alt="Réalisation Fluide Coiffure" loading="lazy"></figure>
-        <figure><img src="https://raw.githubusercontent.com/annieclauderemillard-wq/fluide/main/IMG_4799.jpeg" alt="Réalisation Fluide Coiffure" loading="lazy"></figure>
-        <figure><img src="https://raw.githubusercontent.com/annieclauderemillard-wq/fluide/main/IMG_4958.jpeg" alt="Réalisation Fluide Coiffure" loading="lazy"></figure>
-        <figure><img src="https://raw.githubusercontent.com/annieclauderemillard-wq/fluide/main/IMG_5939.jpeg" alt="Réalisation Fluide Coiffure" loading="lazy"></figure>
-        <figure><img src="https://raw.githubusercontent.com/annieclauderemillard-wq/fluide/main/IMG_6249.jpeg" alt="Réalisation Fluide Coiffure" loading="lazy"></figure>
-        <figure><img src="https://raw.githubusercontent.com/annieclauderemillard-wq/fluide/main/IMG_3070.jpeg" alt="Réalisation Fluide Coiffure" loading="lazy"></figure>
-        <figure><img src="https://raw.githubusercontent.com/annieclauderemillard-wq/fluide/main/IMG_5926.jpeg" alt="Réalisation Fluide Coiffure" loading="lazy"></figure>
-        <figure><img src="https://raw.githubusercontent.com/annieclauderemillard-wq/fluide/main/IMG_6244.jpeg" alt="Réalisation Fluide Coiffure" loading="lazy"></figure>
-        <figure><img src="https://raw.githubusercontent.com/annieclauderemillard-wq/fluide/main/IMG_6256.jpeg" alt="Réalisation Fluide Coiffure" loading="lazy"></figure>
-        <figure><img src="https://raw.githubusercontent.com/annieclauderemillard-wq/fluide/main/IMG_6614.jpeg" alt="Réalisation Fluide Coiffure" loading="lazy"></figure>
-        <figure><img src="https://raw.githubusercontent.com/annieclauderemillard-wq/fluide/main/IMG_7971.jpeg" alt="Réalisation Fluide Coiffure" loading="lazy"></figure>
-        <figure><img src="https://raw.githubusercontent.com/annieclauderemillard-wq/fluide/main/IMG_8465.jpeg" alt="Réalisation Fluide Coiffure" loading="lazy"></figure>
-        <figure><img src="https://raw.githubusercontent.com/annieclauderemillard-wq/fluide/main/IMG_8055.jpeg" alt="Réalisation Fluide Coiffure" loading="lazy"></figure>
+        <figure><img src="https://raw.githubusercontent.com/annieclauderemillard-wq/fluide/main/1.jpeg" alt="Réalisation Fluide Coiffure" loading="lazy"></figure>
+        <figure><img src="https://raw.githubusercontent.com/annieclauderemillard-wq/fluide/main/2.jpeg" alt="Réalisation Fluide Coiffure" loading="lazy"></figure>
+        <figure><img src="https://raw.githubusercontent.com/annieclauderemillard-wq/fluide/main/3.jpeg" alt="Réalisation Fluide Coiffure" loading="lazy"></figure>
+        <figure><img src="https://raw.githubusercontent.com/annieclauderemillard-wq/fluide/main/4.png" alt="Réalisation Fluide Coiffure" loading="lazy"></figure>
+        <figure><img src="https://raw.githubusercontent.com/annieclauderemillard-wq/fluide/main/5.jpeg" alt="Réalisation Fluide Coiffure" loading="lazy"></figure>
+        <figure><img src="https://raw.githubusercontent.com/annieclauderemillard-wq/fluide/main/6.jpeg" alt="Réalisation Fluide Coiffure" loading="lazy"></figure>
+        <figure><img src="https://raw.githubusercontent.com/annieclauderemillard-wq/fluide/main/7.jpeg" alt="Réalisation Fluide Coiffure" loading="lazy"></figure>
+        <figure><img src="https://raw.githubusercontent.com/annieclauderemillard-wq/fluide/main/8.jpeg" alt="Réalisation Fluide Coiffure" loading="lazy"></figure>
+        <figure><img src="https://raw.githubusercontent.com/annieclauderemillard-wq/fluide/main/9.jpeg" alt="Réalisation Fluide Coiffure" loading="lazy"></figure>
+        <figure><img src="https://raw.githubusercontent.com/annieclauderemillard-wq/fluide/main/10.jpeg" alt="Réalisation Fluide Coiffure" loading="lazy"></figure>
+        <figure><img src="https://raw.githubusercontent.com/annieclauderemillard-wq/fluide/main/11.jpeg" alt="Réalisation Fluide Coiffure" loading="lazy"></figure>
+        <figure><img src="https://raw.githubusercontent.com/annieclauderemillard-wq/fluide/main/12.jpeg" alt="Réalisation Fluide Coiffure" loading="lazy"></figure>
+        <figure><img src="https://raw.githubusercontent.com/annieclauderemillard-wq/fluide/main/13.jpeg" alt="Réalisation Fluide Coiffure" loading="lazy"></figure>
+        <figure><img src="https://raw.githubusercontent.com/annieclauderemillard-wq/fluide/main/14.jpeg" alt="Réalisation Fluide Coiffure" loading="lazy"></figure>
       </div>
       <button class="sf-btn next" id="sf-next" aria-label="Photos suivantes">›</button>
     </div>
